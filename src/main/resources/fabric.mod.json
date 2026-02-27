@@ -1,0 +1,36 @@
+{
+	"schemaVersion": 1,
+	"id": "gameruleconfig",
+	"version": "${version}",
+	"name": "Gamerule Config",
+	"description": "Enable and disable gamerules using an external JSON config file",
+	"authors": [
+		"LiviiYS"
+	],
+	"contact": {
+		"homepage": "",
+		"sources": ""
+	},
+	"license": "CC0-1.0",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"turniplabs.gameruleconfig.GameruleConfigMod"
+		],
+		"server": [
+			"turniplabs.gameruleconfig.GameruleConfigMod"
+		]
+	},
+	"mixins": [
+		"gameruleconfig.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=${fabricloader}",
+		"halplibe": ">=${halplibe}",
+		"minecraft": "*",
+		"java": ">=${java}"
+	},
+	"suggests": {
+		"modmenu": ">=${modmenu}"
+	}
+}

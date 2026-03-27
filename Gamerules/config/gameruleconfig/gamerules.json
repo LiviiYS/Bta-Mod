@@ -1,0 +1,14 @@
+{
+  "allowSleeping": true,
+  "allowSprinting": true,
+  "doDaylightCycle": true,
+  "doFireSpread": true,
+  "doNightmares": true,
+  "doSeasonalGrowth": true,
+  "doWeatherCycle": true,
+  "dwarfMode": false,
+  "instantHealing": false,
+  "keepInventory": false,
+  "mobGriefing": true,
+  "treecapitator": false
+}

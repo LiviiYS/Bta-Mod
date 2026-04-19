@@ -1,58 +1,29 @@
 package turniplabs.gameruleconfig;
 
-import net.fabricmc.api.DedicatedServerModInitializer;
-import net.fabricmc.api.ModInitializer;
-import net.minecraft.core.data.gamerule.GameRuleBoolean;
-import net.minecraft.core.data.gamerule.GameRules;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import turniplabs.halplibe.util.GameStartEntrypoint;
-import turniplabs.halplibe.util.RecipeEntrypoint;
-import turniplabs.gameruleconfig.config.GameruleConfigManager;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-public class GameruleConfigMod implements ModInitializer, RecipeEntrypoint, GameStartEntrypoint, DedicatedServerModInitializer {
-	public static final String MOD_ID = "gameruleconfig";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+@Mod(modid = GameruleConfigMod.MODID, name = GameruleConfigMod.NAME, version = GameruleConfigMod.VERSION)
+public class GameruleConfigMod {
+    public static final String MODID = "gameruleconfig";
+    public static final String NAME = "Gamerule Config Mod";
+    public static final String VERSION = "1.0.0";
 
-	// Register custom gamerules
-	public static final GameRuleBoolean ALLOW_SLEEPING = GameRules.register(new GameRuleBoolean("allowSleeping", true));
-	public static final GameRuleBoolean ALLOW_SPRINTING = GameRules.register(new GameRuleBoolean("allowSprinting", true));
-	public static final GameRuleBoolean DO_DAYLIGHT_CYCLE = GameRules.register(new GameRuleBoolean("doDaylightCycle", true));
-	public static final GameRuleBoolean DO_FIRE_SPREAD = GameRules.register(new GameRuleBoolean("doFireSpread", true));
-	public static final GameRuleBoolean DO_NIGHTMARES = GameRules.register(new GameRuleBoolean("doNightmares", true));
-	public static final GameRuleBoolean DO_SEASONAL_GROWTH = GameRules.register(new GameRuleBoolean("doSeasonalGrowth", true));
-	public static final GameRuleBoolean DO_WEATHER_CYCLE = GameRules.register(new GameRuleBoolean("doWeatherCycle", true));
-	public static final GameRuleBoolean DWARF_MODE = GameRules.register(new GameRuleBoolean("dwarfMode", false));
-	public static final GameRuleBoolean INSTANT_HEALING = GameRules.register(new GameRuleBoolean("instantHealing", false));
-	public static final GameRuleBoolean KEEP_INVENTORY = GameRules.register(new GameRuleBoolean("keepInventory", false));
-	public static final GameRuleBoolean MOB_GRIEFING = GameRules.register(new GameRuleBoolean("mobGriefing", true));
-	public static final GameRuleBoolean TREECAPITATOR = GameRules.register(new GameRuleBoolean("treecapitator", false));
+    @Mod.EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        // Pre-initialization logic here
+    }
 
-	@Override
-	public void onInitialize() {
-		LOGGER.info("Gamerule Config Mod initialized.");
-		GameruleConfigManager.loadConfig();
-	}
+    @Mod.EventHandler
+    public void init(FMLInitializationEvent event) {
+        // Initialize the mod
+        GameruleConfigManager.init();
+    }
 
-	@Override
-	public void onInitializeServer() {
-		LOGGER.info("Gamerule Config Mod server initialized.");
-		GameruleConfigManager.applyGamerulesToWorld();
-	}
-
-	@Override
-	public void onRecipesReady() {
-	}
-
-	@Override
-	public void initNamespaces() {
-	}
-
-	@Override
-	public void beforeGameStart() {
-	}
-
-	@Override
-	public void afterGameStart() {
-	}
+    @Mod.EventHandler
+    public void postInit(FMLPostInitializationEvent event) {
+        // Post-initialization logic here
+    }
 }
